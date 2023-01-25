@@ -29,6 +29,9 @@ a {
 }
 .section-tagline {
     color: var(--color-primary);
+    font-family: var(--font-family-title);
+    transform: var(--section-tagline-transform);
+    font-weight: var(--font-weight-bold);
 }
 :root {
     --color-primary: #d73953;
@@ -55,5 +58,7 @@ a {
     --line-height-big: 1.8;
 
     --section-header-align: center;
+
+    --section-tagline-transform: uppercase;
 
 }
