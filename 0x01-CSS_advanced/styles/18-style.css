@@ -85,7 +85,7 @@ a:active {
 .nav {
     margin: 0;
     padding: 0;
-    text-decoration: none;
+    list-style: none;
     text-align: center;
 }
 .nav .nav-item {
@@ -98,7 +98,10 @@ a:active {
 }
 .nav .nav-link {
     display: block;
-    padding: 1rem 0.5rem;
+    padding: 0.5rem 1rem;
+}
+.nav .nav-link:hover {
+    color: var(--nav-item-link-hover);
 }
 .visually-hidden {
     display: none;
