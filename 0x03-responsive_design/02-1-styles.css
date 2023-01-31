@@ -236,6 +236,11 @@
   
   /* Navbar
       ============================= */
+    @media (max-width: 767px) {
+      .navbar-menu {
+        display: none;
+      }
+    }
   
   .nav {
     margin: 0;
