@@ -237,10 +237,18 @@
   
   /* Navbar
       ============================= */
+    @media (max-width: 3000px) {
+      #menu-btn.menu-btn {
+        visibility: hidden;
+      }
+    }
     @media (max-width: 767px) {
       :root {
         --nav-item-margin: 0;
 
+      }
+      #menu-btn.menu-btn {
+        visibility:visible;
       }
       .navbar-menu {
         display: none;
