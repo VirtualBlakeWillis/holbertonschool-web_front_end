@@ -1,0 +1,14 @@
+/* set colors using variables */
+$Grey: #3D3D3D;
+$grey-light: #6D6D6D;
+body {
+    color: $Grey;
+    background-color: $grey-light;
+}
+  
+  p {
+    color: $Grey;
+}
+h2 {
+  background-color: $grey-light;
+}
