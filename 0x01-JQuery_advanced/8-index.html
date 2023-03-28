@@ -53,11 +53,9 @@
 
         function buildPagination(numberOfItems, itemsPerPage, currentOffset) {
             const currentPage = Math.ceil(currentOffset / itemsPerPage);
-            console.log("building")
             $("#pagination").empty();
             $("#pagination").css('list-style-type', 'none')
             for (i = 1; i < (numberOfItems / itemsPerPage); i++) {
-                console.log(i)
                 let patLi = $("<li>")
                     .text(i)
                     .css({"cursor": "pointer", "margin-left": "10px", "float": "left"})
