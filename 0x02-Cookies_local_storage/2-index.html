@@ -8,28 +8,31 @@
 </head>
 <body>
     <h1>Login to the website</h1>
-    <form>
-        <input type="text" name="name" id="name" placeholder="Firstname">
-        <input type="text" name="email" id="email" placeholder="Email">
-        <button onclick="setCookies()">Log me in</button>
-    </form>
+    <input type="text" name="name" id="name" placeholder="Firstname"/>
+    <input type="text" name="email" id="email" placeholder="Email"/>
+    <button onclick="setCookies()">Log me in</button>
+
     <h1>Cookies</h1>
-    <button>Show the cookies</button>
+    <button onclick="showCookies()">Show the cookies</button>
 
     <script>
-        function setCookie() {
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-
-            const date = new Date(Date.now() + (10*24*60*60*1000));
+        function setCookies() {
+            let date = new Date(Date.now() + (10*24*60*60*1000));
             date = date.toUTCString(); // "Thu, 01 Jan 1970 00:00:00 GMT"
 
-            document.cookie = 'firstname=${firstname}; expires=${date}; path=/';
-            document.cookie = 'email=${email}; expires=${date}; path=/';
+            document.cookie = `firstname=${document.querySelector('#name').value}; expires=${date};`;
+            document.cookie = `email=${document.querySelector('#email').value}; expires=${date};`;
+        }
+        function showCookies() {
+            let p = document.createElement('p')
+            p.innerHTML = `Email: ${getCookie("email")} - Firstname: ${getCookie("firstname")}`;
+            document.body.append(p);
         }
         function getCookie(name) {
-            
+            return (document.cookie
+                .split("; ")
+                .find((row) => row.startsWith(`${name}=`))
+                ?.split("=")[1])
         }
     </script>
 </body>
