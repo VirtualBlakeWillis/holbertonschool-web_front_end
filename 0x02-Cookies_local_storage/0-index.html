@@ -8,12 +8,23 @@
 </head>
 <body>
     <h1>Login to the website</h1>
-    <form action="">
-        <input type="text" name="fname" id="fname" placeholder="Firstname">
-        <input type="text" name="email" id="email" placeholder="Email">
-        <input type="button" value="Log me in">
-    </form>
+    <input type="text" name="name" id="name" placeholder="Firstname"/>
+    <input type="text" name="email" id="email" placeholder="Email"/>
+    <button onclick="setCookies()">Log me in</button>
+
     <h1>Cookies</h1>
-    <button>Show the cookies</button>
+    <button onclick="showCookies()">Show the cookies</button>
+
+    <script>
+        function setCookies() {
+            document.cookie = `firstname=${document.querySelector('#name').value}`;
+            document.cookie = `email=${document.querySelector('#email').value}`;
+        }
+        function showCookies() {
+            let p = document.createElement('p')
+            p.innerHTML = 'Cookies: ' + document.cookie;
+            document.body.append(p);
+        }
+    </script>
 </body>
 </html>

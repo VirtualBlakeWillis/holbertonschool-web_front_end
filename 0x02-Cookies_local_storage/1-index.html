@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Login to the website</h1>
+    <form>
+        <input type="text" name="name" id="name" placeholder="Firstname">
+        <input type="text" name="email" id="email" placeholder="Email">
+        <button onclick="setCookies()">Log me in</button>
+    </form>
+    <h1>Cookies</h1>
+    <button>Show the cookies</button>
+
+    <script>
+        function setCookie() {
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            const date = new Date(Date.now() + (10*24*60*60*1000));
+            date = date.toUTCString(); // "Thu, 01 Jan 1970 00:00:00 GMT"
+
+            document.cookie = 'firstname=${firstname}; expires=${date}; path=/';
+            document.cookie = 'email=${email}; expires=${date}; path=/';
+        }
+    </script>
+</body>
+</html>
