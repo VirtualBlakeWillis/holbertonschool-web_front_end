@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+        // Check if local storage is enabled
+        try {
+            const key = `__storage__test`;
+            window.localStorage.setItem(key, null);
+            window.localStorage.removeItem(key);
+            createStore();
+            displayCart();
+            // Local Storage is enabled, 
+            // allow the user to see the application and call the function createStore and displayCart
+        } catch (e) {
+            alert("Sorry, your browser does not support Web storage. Try again with a better one");
+        }
+
+        function addItemToCart(item) {
+            localStorage.setItem(item, 'true');
+        }
+        function createStore() {
+            let ul = document.createElement("ul");
+
+            for (x of availableItems) {
+                let item = document.createElement("li");
+                item.innerText = x;
+                item.addEventListener("click", function() {
+                    addItemToCart(item)
+                });
+                ul.appendChild(item);
+            }
+            document.body.append(ul);
+
+        }
+        function displayCart() {
+            let cartItems = Object.keys(localStorage).filter(key => availableItems.includes(key));
+            if (cartItems.length > 0) {
+                let message = `You previously had ${cartItems.length} items in your cart`;
+                let p = document.createElement('p');
+                p.textContent = message;
+                document.body.appendChild(p);
+            }
+    }
+    </script>
+</body>
+</html>
